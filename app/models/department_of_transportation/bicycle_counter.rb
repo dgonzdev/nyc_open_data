@@ -5,10 +5,10 @@ module DepartmentOfTransportation
   class BicycleCounter < ApplicationRecord
     self.table_name = :bicycle_counters
 
-    CSV_ENDPOINT = "https://data.cityofnewyork.us/resource/smn3-rzf9.csv"
+    CSV_SODA2_API_ENDPOINT = "https://data.cityofnewyork.us/resource/smn3-rzf9.csv"
 
-    def self.download
-      URI.open("https://data.cityofnewyork.us/resource/smn3-rzf9.csv") do |f|
+    def self.download_csv_with_soda2
+      URI.open(CSV_SODA2_API_ENDPOINT) do |f|
         f.each_line.each_with_index do |line, index|
           next if index == 0
 
