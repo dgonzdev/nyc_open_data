@@ -7,6 +7,40 @@ module OfficeOfCitywideEventCoordinationAndManagement
 
     CSV_SODA2_API_ENDPOINT = "https://data.cityofnewyork.us/resource/bkfu-528j.csv"
 
+    def self.url
+      "https://data.cityofnewyork.us/City-Government/NYC-Permitted-Event-Information/tvpp-9vvx/about_data"
+    end
+
+    def self.name
+      "NYC Permitted Event Information"
+    end
+
+    def self.description
+      "This list contains information on approved event applications that will occur within the next month. Please note that Permitted Film Events only reflect those permits which will impact one or more streets for at least five days."
+    end
+
+    def self.data_provided_by
+      "Office of Citywide Event Coordination and Management (CECM)"
+    end
+
+    # Dataset Information
+    def self.agency
+      "Office of Citywide Event Coordination and Management (CECM)"
+    end
+
+    # Update
+    def self.update_frequency
+      "Daily"
+    end
+
+    def self.automation
+      "Yes"
+    end
+
+    def self.date_made_public
+      "11/19/2013"
+    end
+
     # Download
     def self.download_csv_with_soda2
       URI.open(CSV_SODA2_API_ENDPOINT) do |f|
