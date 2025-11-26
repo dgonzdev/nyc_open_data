@@ -1,6 +1,6 @@
 module Etl
-  module Jobs
-    module CsvSoda2IntoPrimaryDbJob
+  module Workflows
+    module CsvSoda2IntoPrimaryDbWorkflow
       module_function
 
       # https://github.com/thbar/kiba/wiki/How-to-define-ETL-jobs-with-Kiba
