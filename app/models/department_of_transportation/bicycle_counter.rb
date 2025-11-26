@@ -52,21 +52,20 @@ module DepartmentOfTransportation
 
     # Import
     def self.import_from_csv_soda2
-      URI.open(CSV_SODA2_API_ENDPOINT) do |f|
-        f.each_line.each_with_index do |line, index|
-          next if index == 0
-
-          data = CSV.parse_line(line)
-
-          original_id = data[0]
-          name = data[1]
-          domain = data[2]
-          latitude = data[3]
-          longitude = data[4]
-          interval = data[5]
-          timezone = data[6]
-          sens = data[7]
-          counter = data[8]
+      CSV.new(
+        URI.open(CSV_SODA2_API_ENDPOINT),
+        headers: true,
+        header_converters: :symbol
+      ).each do |row|
+          original_id = row[0]
+          name = row[1]
+          domain = row[2]
+          latitude = row[3]
+          longitude = row[4]
+          interval = row[5]
+          timezone = row[6]
+          sens = row[7]
+          counter = row[8]
 
           next if BicycleCounter.find_by(original_id: original_id).present?
 
@@ -81,7 +80,6 @@ module DepartmentOfTransportation
             sens: sens,
             counter: counter
           )
-        end
       end
     end
 
