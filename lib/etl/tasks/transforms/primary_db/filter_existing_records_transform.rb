@@ -14,10 +14,10 @@ module Etl
 
           def process(row)
             search_params = search_keys.each_with_object({}) do |search_key, obj|
-              search_column_name = search_key[0]
-              search_row_name = search_key[1]
+              column_name = search_key[0]
+              row_name = search_key[1]
 
-              obj[search_column_name] = row[search_row_name]
+              obj[column_name] = row[row_name]
             end
 
             model
