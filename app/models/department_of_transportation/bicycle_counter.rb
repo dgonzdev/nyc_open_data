@@ -50,8 +50,8 @@ module DepartmentOfTransportation
       "bicycle, count, eco-counter, bike"
     end
 
-    # Download
-    def self.download_csv_with_soda2
+    # Import
+    def self.import_from_csv_soda2
       URI.open(CSV_SODA2_API_ENDPOINT) do |f|
         f.each_line.each_with_index do |line, index|
           next if index == 0
@@ -85,7 +85,7 @@ module DepartmentOfTransportation
       end
     end
 
-    def self.csv_soda2_kiba_workflow
+    def self.import_from_csv_soda2_kiba_workflow
       Etl::Workflows::CsvSoda2IntoPrimaryDbWorkflow.setup
     end
   end
