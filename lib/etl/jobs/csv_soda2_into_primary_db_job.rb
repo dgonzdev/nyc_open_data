@@ -1,0 +1,18 @@
+module Etl
+  module Jobs
+    module CsvSoda2IntoPrimaryDbJob
+      module_function
+
+      # https://github.com/thbar/kiba/wiki/How-to-define-ETL-jobs-with-Kiba
+      def setup(config = {})
+        Kiba.parse do
+          source Sources::CsvSoda2
+
+          transform Transforms::BicycleCounterPrimaryDbFilterExistingRecords
+
+          destination Destinations::BicycleCounterPrimaryDb
+        end
+      end
+    end
+  end
+end
