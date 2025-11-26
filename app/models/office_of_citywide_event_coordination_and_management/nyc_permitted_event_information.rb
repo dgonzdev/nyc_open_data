@@ -50,26 +50,25 @@ module OfficeOfCitywideEventCoordinationAndManagement
       "event, to do, activity, park, block party, festival, nyc permitted event information, otm, office of the mayor"
     end
 
-    # Download
-    def self.download_csv_with_soda2
-      URI.open(CSV_SODA2_API_ENDPOINT) do |f|
-        f.each_line.each_with_index do |line, index|
-          next if index == 0
-
-          data = CSV.parse_line(line)
-
-          event_id = data[0]
-          event_name = data[1]
-          start_date_time = data[2]
-          end_date_time = data[3]
-          event_agency = data[4]
-          event_type = data[5]
-          event_borough = data[6]
-          event_location = data[7]
-          event_street_side = data[8]
-          street_closure_type = data[9]
-          community_board = data[10]
-          police_precinct = data[11]
+    # Import
+    def self.import_from_csv_soda2
+      CSV.new(
+        URI.open(CSV_SODA2_API_ENDPOINT),
+        headers: true,
+        header_converters: :symbol
+      ).each do |row|
+          event_id = row[0]
+          event_name = row[1]
+          start_date_time = row[2]
+          end_date_time = row[3]
+          event_agency = row[4]
+          event_type = row[5]
+          event_borough = row[6]
+          event_location = row[7]
+          event_street_side = row[8]
+          street_closure_type = row[9]
+          community_board = row[10]
+          police_precinct = row[11]
 
           next if NycPermittedEventInformation.find_by(event_id: event_id).present?
 
@@ -87,8 +86,38 @@ module OfficeOfCitywideEventCoordinationAndManagement
             community_board: community_board,
             police_precinct: police_precinct
           )
-        end
       end
+    end
+
+    def self.import_from_csv_soda2_kiba_workflow
+      Etl::Workflows::CsvSoda2IntoPrimaryDbWorkflow.setup({
+        source_config: {
+          remote_url: CSV_SODA2_API_ENDPOINT
+        },
+        transform_config: {
+          model: ::OfficeOfCitywideEventCoordinationAndManagement::NycPermittedEventInformation,
+          search_keys: [
+            [:event_id, :event_id]
+          ]
+        },
+        destination_config: {
+          model: ::OfficeOfCitywideEventCoordinationAndManagement::NycPermittedEventInformation,
+          column_keys: [
+            [:event_id, :event_id],
+            [:event_name, :event_name],
+            [:start_date_time, :start_date_time],
+            [:end_date_time, :end_date_time],
+            [:event_agency, :event_agency],
+            [:event_type, :event_type],
+            [:event_borough, :event_borough],
+            [:event_location, :event_location],
+            [:event_street_side, :event_street_side],
+            [:street_closure_type, :street_closure_type],
+            [:community_board, :community_board],
+            [:police_precinct, :police_precinct]
+          ]
+        }
+      })
     end
   end
 end
