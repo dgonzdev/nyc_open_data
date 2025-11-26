@@ -84,5 +84,9 @@ module DepartmentOfTransportation
         end
       end
     end
+
+    def self.csv_soda2_kiba_workflow
+      Etl::Jobs::CsvSoda2IntoPrimaryDbJob.setup
+    end
   end
 end
