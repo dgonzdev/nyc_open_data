@@ -9,8 +9,28 @@ The purpose of this project is to empower you to
 
 ## Local Setup
 
-Our [local setup guide](docs/LOCAL.md) will help you run the project's rails app locally.
+The [local setup guide](docs/LOCAL.md) details how to run the project's rails app locally.
 
 ## Core Concepts
 
-Our [core concepts document](docs/CORE_CONCEPTS.md) will help you learn about the main technologies we are leveraging.
+The [core concepts document](docs/CORE_CONCEPTS.md) summarizes the main technologies we are leveraging.
+
+## Create Your Own Copy of NYC Open Data
+
+TODO
+
+## Create and Share ETL Workflows with the NYC Civic Tech Community
+
+TODO
+
+## Explore NYC Open Data and Your ETL Output with Open Source Solutions
+
+TODO
+
+## Production Deployments
+
+TODO
+
+## Contributing
+
+TODO
