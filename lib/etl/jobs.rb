@@ -1,4 +1,4 @@
-module ETL
+module Etl
   class Jobs
     def self.bicycle_counters_into_analytics_db
       Etl::Workflows::CsvSoda2IntoPrimaryDbWorkflow.setup({
