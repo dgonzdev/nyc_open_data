@@ -89,35 +89,8 @@ module OfficeOfCitywideEventCoordinationAndManagement
       end
     end
 
-    def self.import_from_csv_soda2_kiba_workflow
-      Etl::WorkflowTemplates::CsvSoda2IntoPrimaryDbWorkflowTemplate.setup({
-        source_config: {
-          remote_url: CSV_SODA2_API_ENDPOINT
-        },
-        transform_config: {
-          model: ::OfficeOfCitywideEventCoordinationAndManagement::NycPermittedEventInformation,
-          search_keys: [
-            [:event_id, :event_id]
-          ]
-        },
-        destination_config: {
-          model: ::OfficeOfCitywideEventCoordinationAndManagement::NycPermittedEventInformation,
-          column_keys: [
-            [:event_id, :event_id],
-            [:event_name, :event_name],
-            [:start_date_time, :start_date_time],
-            [:end_date_time, :end_date_time],
-            [:event_agency, :event_agency],
-            [:event_type, :event_type],
-            [:event_borough, :event_borough],
-            [:event_location, :event_location],
-            [:event_street_side, :event_street_side],
-            [:street_closure_type, :street_closure_type],
-            [:community_board, :community_board],
-            [:police_precinct, :police_precinct]
-          ]
-        }
-      })
+    def self.import_from_csv_soda2_kiba
+      Etl::Runners::NycPermittedEventInformationIntoPrimaryDb.run
     end
   end
 end
