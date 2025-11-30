@@ -39,6 +39,7 @@ development:
     username: postgres
     password: password
     pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+    migrations_paths: db/analytics_migrate
 
   # The specified database role being used to connect to PostgreSQL.
   # To create additional roles in PostgreSQL see `$ createuser --help`.
@@ -87,6 +88,7 @@ test:
     username: postgres
     password: password
     pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+    migrations_paths: db/analytics_migrate
 
 # As with config/credentials.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
@@ -127,3 +129,4 @@ production:
     username: <%= ENV['ANALYTICS_RDS_USERNAME'] %>
     password: <%= ENV['ANALYTICS_RDS_PASSWORD'] %>
     pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+    migrations_paths: db/analytics_migrate
