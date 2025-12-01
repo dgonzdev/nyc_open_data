@@ -5,7 +5,7 @@
 The purpose of this project is to empower you to
 - create your own copy of NYC Open Data
 - create and share ETL workflows with the NYC civic tech community
-- explore NYC Open Data and your ETL output with open source solutions
+- explore NYC Open Data and your ETL output with open source BI solutions
 
 ## Local Setup
 
@@ -23,7 +23,7 @@ TODO
 
 TODO
 
-## Explore NYC Open Data and Your ETL Output with Open Source Solutions
+## Explore NYC Open Data and Your ETL Output with Open Source BI Solutions
 
 TODO
 
