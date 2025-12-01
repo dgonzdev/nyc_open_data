@@ -44,6 +44,8 @@ docker-compose run web bundle exec rails g migration <Migration Name>
 docker-compose run web bundle exec rake db:migrate
 ```
 
+Remember to create a corresponding Rails model.
+
 ## Create Database Tables - Analytics DB
 
 Create a new table in the analytics database.
@@ -55,6 +57,8 @@ docker-compose run web bundle exec rails g migration <Migration Name> --database
 ```
 docker-compose run web bundle exec rake db:migrate
 ```
+
+Remember to create a corresponding Rails model in app/models/analytics/.
 
 ## Import Data into the Primary DB
 
