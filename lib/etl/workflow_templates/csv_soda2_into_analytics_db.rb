@@ -10,7 +10,7 @@ module Etl
 
           transform Tasks::Transforms::AnalyticsDb::FilterExistingRecordsTransform, **config[:transform_config]
 
-          destination Tasks::Destinations::PrimaryDb::TableDestination, **config[:destination_config]
+          destination Tasks::Destinations::AnalyticsDb::TableDestination, **config[:destination_config]
         end
       end
     end
