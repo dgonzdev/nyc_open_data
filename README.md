@@ -9,7 +9,7 @@ The purpose of this project is to empower you to
 
 ## Local Setup
 
-Please read the [local setup guide](docs/LOCAL.md) for instructions on how to run the project's rails app locally.
+Please read the [local setup guide](docs/LOCAL_SETUP.md) for instructions on how to run the project's rails app locally.
 
 ## Core Concepts
 
