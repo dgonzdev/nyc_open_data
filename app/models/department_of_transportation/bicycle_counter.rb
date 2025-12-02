@@ -4,7 +4,7 @@ module DepartmentOfTransportation
   class BicycleCounter < ApplicationRecord
     self.table_name = :bicycle_counters
 
-    CSV_SODA2_API_ENDPOINT = "https://data.cityofnewyork.us/resource/smn3-rzf9.csv"
+    CSV_SODA2_API_ENDPOINT = "https://data.cityofnewyork.us/resource/smn3-rzf9.csv?$limit=50000&$offset=0&$order=event_id%20ASC"
     CSV_SODA3_API_ENDPOINT = "https://data.cityofnewyork.us/api/v3/views/smn3-rzf9/query.csv"
 
     def self.url
