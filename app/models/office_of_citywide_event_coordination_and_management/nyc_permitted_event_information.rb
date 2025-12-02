@@ -4,7 +4,7 @@ module OfficeOfCitywideEventCoordinationAndManagement
   class NycPermittedEventInformation < ApplicationRecord
     self.table_name = :nyc_permitted_event_informations
 
-    CSV_SODA2_API_ENDPOINT = "https://data.cityofnewyork.us/resource/bkfu-528j.csv"
+    CSV_SODA2_API_ENDPOINT = "https://data.cityofnewyork.us/resource/tvpp-9vvx.csv?$limit=50000&$offset=0&$order=event_id%20ASC"
     CSV_SODA3_API_ENDPOINT = "https://data.cityofnewyork.us/api/v3/views/tvpp-9vvx/query.csv"
 
     def self.url
