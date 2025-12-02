@@ -6,7 +6,20 @@
 
 Please follow VSCode's instructions for installing Docker, https://code.visualstudio.com/docs/devcontainers/containers#_installation.
 
+Then create a file named web-variables.env in the root folder of this project.
+
 Note: VSCode is not required for developing this application.
+
+### Socrata
+
+Please follow Socrata's instructions for creating an API KEY https://support.socrata.com/hc/en-us/articles/210138558-Generating-App-Tokens-and-API-Keys.
+
+Set the api key id and secret in the web-variables.env file like so
+
+```
+SOCRATA_API_KEY_ID=<id>
+SOCRATA_API_KEY_SECRET=<secret>
+```
 
 ## Build
 

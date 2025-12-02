@@ -1,11 +1,11 @@
-require 'open-uri'
-require 'csv'
+require 'remote_csv'
 
 module OfficeOfCitywideEventCoordinationAndManagement
   class NycPermittedEventInformation < ApplicationRecord
     self.table_name = :nyc_permitted_event_informations
 
     CSV_SODA2_API_ENDPOINT = "https://data.cityofnewyork.us/resource/bkfu-528j.csv"
+    CSV_SODA3_API_ENDPOINT = "https://data.cityofnewyork.us/api/v3/views/tvpp-9vvx/query.csv"
 
     def self.url
       "https://data.cityofnewyork.us/City-Government/NYC-Permitted-Event-Information/tvpp-9vvx/about_data"
@@ -52,45 +52,80 @@ module OfficeOfCitywideEventCoordinationAndManagement
 
     # Import
     def self.import_from_csv_soda2
-      CSV.new(
-        URI.open(CSV_SODA2_API_ENDPOINT),
-        headers: true,
-        header_converters: :symbol
-      ).each do |row|
-          event_id = row[0]
-          event_name = row[1]
-          start_date_time = row[2]
-          end_date_time = row[3]
-          event_agency = row[4]
-          event_type = row[5]
-          event_borough = row[6]
-          event_location = row[7]
-          event_street_side = row[8]
-          street_closure_type = row[9]
-          community_board = row[10]
-          police_precinct = row[11]
+      csv = RemoteCSV.open(CSV_SODA2_API_ENDPOINT)
 
-          next if NycPermittedEventInformation.find_by(event_id: event_id).present?
+      csv.each do |row|
+        event_id = row[0]
+        event_name = row[1]
+        start_date_time = row[2]
+        end_date_time = row[3]
+        event_agency = row[4]
+        event_type = row[5]
+        event_borough = row[6]
+        event_location = row[7]
+        event_street_side = row[8]
+        street_closure_type = row[9]
+        community_board = row[10]
+        police_precinct = row[11]
 
-          NycPermittedEventInformation.create!(
-            event_id: event_id,
-            event_name: event_name,
-            start_date_time: start_date_time,
-            end_date_time: end_date_time,
-            event_agency: event_agency,
-            event_type: event_type,
-            event_borough: event_borough,
-            event_location: event_location,
-            event_street_side: event_street_side,
-            street_closure_type: street_closure_type,
-            community_board: community_board,
-            police_precinct: police_precinct
-          )
+        next if NycPermittedEventInformation.find_by(event_id: event_id).present?
+
+        NycPermittedEventInformation.create!(
+          event_id: event_id,
+          event_name: event_name,
+          start_date_time: start_date_time,
+          end_date_time: end_date_time,
+          event_agency: event_agency,
+          event_type: event_type,
+          event_borough: event_borough,
+          event_location: event_location,
+          event_street_side: event_street_side,
+          street_closure_type: street_closure_type,
+          community_board: community_board,
+          police_precinct: police_precinct
+        )
       end
     end
 
     def self.import_from_csv_soda2_kiba
       Etl::Runners::NycPermittedEventInformationIntoPrimaryDb.run
+    end
+
+    # Note: The headers are different between the soda2 and soda3 csv files
+    def self.import_from_csv_soda3
+       csv = RemoteCSV.open(CSV_SODA3_API_ENDPOINT, soda_version: 3)
+
+       csv.each do |row|
+        event_id = row[4]
+        event_name = row[5]
+        start_date_time = row[6]
+        end_date_time = row[7]
+        event_agency = row[8]
+        event_type = row[9]
+        event_borough = row[10]
+        event_location = row[11]
+        event_street_side = row[12]
+        street_closure_type = row[13]
+        community_board = row[14]
+        police_precinct = row[15]
+
+        next if NycPermittedEventInformation.find_by(event_id: event_id).present?
+
+        NycPermittedEventInformation.create!(
+          event_id: event_id,
+          event_name: event_name,
+          start_date_time: start_date_time,
+          end_date_time: end_date_time,
+          event_agency: event_agency,
+          event_type: event_type,
+          event_borough: event_borough,
+          event_location: event_location,
+          event_street_side: event_street_side,
+          street_closure_type: street_closure_type,
+          community_board: community_board,
+          police_precinct: police_precinct
+        )
+       end
     end
   end
 end
