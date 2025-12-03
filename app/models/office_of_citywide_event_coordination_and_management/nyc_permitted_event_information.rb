@@ -92,7 +92,7 @@ module OfficeOfCitywideEventCoordinationAndManagement
     end
 
     def self.import_from_csv_soda2_kiba
-      Etl::Runners::NycPermittedEventInformationIntoPrimaryDb.run
+      Etl::Runners::NycPermittedEventInformationSoda2ToPrimaryDb.run
     end
 
     # Note: The headers are different between the soda2 and soda3 csv files
