@@ -6,10 +6,10 @@ class RemoteDataset
   attr_reader :pageNumber
   attr_reader :pageSize
 
-  def initialize(remote_url)
+  def initialize(remote_url:, page_number: 1, page_size: 50000)
     @remote_url = remote_url
-    @pageNumber = 1
-    @pageSize = 50000
+    @pageNumber = page_number
+    @pageSize = page_size
   end
 
   def each
