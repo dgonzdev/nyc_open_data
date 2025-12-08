@@ -18,12 +18,10 @@ module RemoteDataset
         _page_number = 1
         _offset = (_page_number - 1) * page_size
 
-        uri = URI(remote_url)
-        uri.query = URI.encode_www_form({ "$limit" => page_size, "$offset" => _offset, "$order" => "id ASC" })
-        remote_url_with_pagination = uri.to_s
+        response = api_call(_page_number, _offset)
 
         csv = CSV.new(
-          URI.open(remote_url_with_pagination),
+          response,
           headers: true,
           header_converters: :symbol
         )
@@ -38,16 +36,23 @@ module RemoteDataset
           _page_number += 1
           _offset = (_page_number - 1) * page_size
 
-          uri = URI(remote_url)
-          uri.query = URI.encode_www_form({ "$limit" => page_size, "$offset" => _offset, "$order" => "id ASC" })
-          remote_url_with_pagination = uri.to_s
+          response = api_call(_page_number, _offset)
 
           csv = CSV.new(
-            URI.open(remote_url_with_pagination),
+            response,
             headers: true,
             header_converters: :symbol
           )
         end
+      end
+
+      private
+
+      def api_call(_page_number, _offset)
+        uri = URI(remote_url)
+        uri.query = URI.encode_www_form({ "$limit" => page_size, "$offset" => _offset, "$order" => "id ASC" })
+        remote_url_with_pagination = uri.to_s
+        URI.open(remote_url_with_pagination)
       end
     end
   end
