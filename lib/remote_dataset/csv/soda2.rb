@@ -50,7 +50,7 @@ module RemoteDataset
 
       def api_call(_page_number, _offset)
         uri = URI(remote_url)
-        uri.query = URI.encode_www_form({ "$limit" => page_size, "$offset" => _offset, "$order" => "id ASC" })
+        uri.query = URI.encode_www_form({ "$limit" => page_size, "$offset" => _offset })
         remote_url_with_pagination = uri.to_s
         URI.open(remote_url_with_pagination)
       end
