@@ -91,15 +91,15 @@ module DepartmentOfTransportation
       csv = RemoteDataset::Csv::Soda3.new(remote_url: CSV_SODA3_API_ENDPOINT)
 
       csv.each do |row|
-        original_id = row[4]
-        name = row[5]
-        domain = row[6]
-        latitude = row[7]
-        longitude = row[8]
-        interval = row[9]
-        timezone = row[10]
-        sens = row[11]
-        counter = row[12]
+        original_id = row[0]
+        name = row[1]
+        domain = row[2]
+        latitude = row[3]
+        longitude = row[4]
+        interval = row[5]
+        timezone = row[6]
+        sens = row[7]
+        counter = row[8]
 
         next if BicycleCounter.find_by(original_id: original_id).present?
 
