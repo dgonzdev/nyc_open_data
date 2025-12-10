@@ -5,6 +5,8 @@ module OfficeOfCitywideEventCoordinationAndManagement
   class NycPermittedEventInformation < ApplicationRecord
     self.table_name = :nyc_permitted_event_informations
 
+    SODA2_API_ENDPOINT = "https://data.cityofnewyork.us/resource/tvpp-9vvx.json"
+
     CSV_SODA2_API_ENDPOINT = "https://data.cityofnewyork.us/resource/tvpp-9vvx.csv"
     CSV_SODA3_API_ENDPOINT = "https://data.cityofnewyork.us/api/v3/views/tvpp-9vvx/query.csv"
 
@@ -52,6 +54,46 @@ module OfficeOfCitywideEventCoordinationAndManagement
     end
 
     # Import
+    def self.import_soda2
+      data = RemoteDataset::Json::Soda2.new(remote_url: SODA2_API_ENDPOINT)
+
+      data.each do |row|
+        event_id = row["event_id"]
+        event_name = row["event_name"]
+        start_date_time = row["start_date_time"]
+        end_date_time = row["end_date_time"]
+        event_agency = row["event_agency"]
+        event_type = row["event_type"]
+        event_borough = row["event_borough"]
+        event_location = row["event_location"]
+        event_street_side = row["event_street_side"]
+        street_closure_type = row["street_closure_type"]
+        community_board = row["community_board"]
+        police_precinct = row["police_precinct"]
+
+        next if NycPermittedEventInformation.where(
+          event_id: event_id,
+          start_date_time: start_date_time,
+          end_date_time: end_date_time
+        ).any?
+
+        NycPermittedEventInformation.create!(
+          event_id: event_id,
+          event_name: event_name,
+          start_date_time: start_date_time,
+          end_date_time: end_date_time,
+          event_agency: event_agency,
+          event_type: event_type,
+          event_borough: event_borough,
+          event_location: event_location,
+          event_street_side: event_street_side,
+          street_closure_type: street_closure_type,
+          community_board: community_board,
+          police_precinct: police_precinct
+        )
+      end
+    end
+
     def self.import_from_csv_soda2
       csv = RemoteDataset::Csv::Soda2.new(remote_url: CSV_SODA2_API_ENDPOINT)
 
