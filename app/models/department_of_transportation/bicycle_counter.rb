@@ -5,6 +5,8 @@ module DepartmentOfTransportation
   class BicycleCounter < ApplicationRecord
     self.table_name = :bicycle_counters
 
+    SODA2_API_ENDPOINT = "https://data.cityofnewyork.us/resource/smn3-rzf9.json"
+
     CSV_SODA2_API_ENDPOINT = "https://data.cityofnewyork.us/resource/smn3-rzf9.csv"
     CSV_SODA3_API_ENDPOINT = "https://data.cityofnewyork.us/api/v3/views/smn3-rzf9/query.csv"
 
