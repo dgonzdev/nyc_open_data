@@ -6,10 +6,10 @@ module DepartmentOfTransportation
     self.table_name = :bicycle_counters
 
     SODA2_API_ENDPOINT = "https://data.cityofnewyork.us/resource/smn3-rzf9.json"
-    SODA3_API_ENDPOINT = "https://data.cityofnewyork.us/api/v3/views/smn3-rzf9/query.json"
+    SODA2_CSV_API_ENDPOINT = "https://data.cityofnewyork.us/resource/smn3-rzf9.csv"
 
-    CSV_SODA2_API_ENDPOINT = "https://data.cityofnewyork.us/resource/smn3-rzf9.csv"
-    CSV_SODA3_API_ENDPOINT = "https://data.cityofnewyork.us/api/v3/views/smn3-rzf9/query.csv"
+    SODA3_API_ENDPOINT = "https://data.cityofnewyork.us/api/v3/views/smn3-rzf9/query.json"
+    SODA3_CSV_API_ENDPOINT = "https://data.cityofnewyork.us/api/v3/views/smn3-rzf9/query.csv"
 
     def self.url
       "https://data.cityofnewyork.us/Transportation/Bicycle-Counters/smn3-rzf9/about_data"
@@ -102,6 +102,7 @@ module DepartmentOfTransportation
         )
       end
     end
+    private_class_method :import_soda2
 
     def self.import_from_csv_soda2
       csv = RemoteDataset::Csv::Soda2.new(remote_url: CSV_SODA2_API_ENDPOINT)
@@ -132,6 +133,7 @@ module DepartmentOfTransportation
         )
       end
     end
+    private_class_method :import_from_csv_soda2
 
     def self.import_soda3
       data = RemoteDataset::Json::Soda3.new(remote_url: SODA3_API_ENDPOINT)
@@ -162,6 +164,7 @@ module DepartmentOfTransportation
         )
       end
     end
+    private_class_method :import_soda3
 
     def self.import_from_csv_soda3
       csv = RemoteDataset::Csv::Soda3.new(remote_url: CSV_SODA3_API_ENDPOINT)
@@ -192,6 +195,7 @@ module DepartmentOfTransportation
         )
       end
     end
+    private_class_method :import_from_csv_soda3
 
     def self.import_from_csv_soda2_kiba
       Etl::Runners::BicycleCountersCsvSoda2IntoPrimaryDb.run
