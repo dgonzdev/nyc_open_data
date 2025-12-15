@@ -55,6 +55,24 @@ module DepartmentOfTransportation
     end
 
     # Import
+    def self.import(api_version: '2', content_type: 'json')
+      if api_version == '2' && content_type == 'json'
+        import_soda2
+      end
+
+      if api_version == '2' && content_type == 'csv'
+        import_from_csv_soda2
+      end
+
+      if api_version == '3' && content_type == 'json'
+        import_soda3
+      end
+
+      if api_version == '3' && content_type == 'csv'
+        import_from_csv_soda3
+      end
+    end
+
     def self.import_soda2
       data = RemoteDataset::Json::Soda2.new(remote_url: SODA2_API_ENDPOINT)
 
@@ -115,10 +133,6 @@ module DepartmentOfTransportation
       end
     end
 
-    def self.import_from_csv_soda2_kiba
-      Etl::Runners::BicycleCountersCsvSoda2IntoPrimaryDb.run
-    end
-
     def self.import_soda3
       data = RemoteDataset::Json::Soda3.new(remote_url: SODA3_API_ENDPOINT)
 
@@ -177,6 +191,10 @@ module DepartmentOfTransportation
           counter: counter
         )
       end
+    end
+
+    def self.import_from_csv_soda2_kiba
+      Etl::Runners::BicycleCountersCsvSoda2IntoPrimaryDb.run
     end
 
     def self.import_from_csv_soda3_kiba
