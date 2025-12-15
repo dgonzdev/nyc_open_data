@@ -2,7 +2,7 @@ module Etl
   module Runners
     class NycPermittedEventInformationSoda2CsvIntoPrimaryDb
       def self.run
-        job = Etl::WorkflowTemplates::CsvSoda2IntoPrimaryDb.setup({
+        job = Etl::WorkflowTemplates::Soda2CsvIntoPrimaryDb.setup({
           source_config: {
             remote_url: ::OfficeOfCitywideEventCoordinationAndManagement::NycPermittedEventInformation::SODA2_CSV_API_ENDPOINT
           },

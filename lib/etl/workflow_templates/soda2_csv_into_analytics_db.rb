@@ -1,6 +1,6 @@
 module Etl
   module WorkflowTemplates
-    module CsvSoda2IntoPrimaryDb
+    module Soda2CsvIntoAnalyticsDb
       module_function
 
       # https://github.com/thbar/kiba/wiki/How-to-define-ETL-jobs-with-Kiba
@@ -8,9 +8,9 @@ module Etl
         Kiba.parse do
           source Tasks::Sources::Soda2CsvSource, **config[:source_config]
 
-          transform Tasks::Transforms::PrimaryDb::FilterExistingRecordsTransform, **config[:transform_config]
+          transform Tasks::Transforms::AnalyticsDb::FilterExistingRecordsTransform, **config[:transform_config]
 
-          destination Tasks::Destinations::PrimaryDb::TableDestination, **config[:destination_config]
+          destination Tasks::Destinations::AnalyticsDb::TableDestination, **config[:destination_config]
         end
       end
     end
