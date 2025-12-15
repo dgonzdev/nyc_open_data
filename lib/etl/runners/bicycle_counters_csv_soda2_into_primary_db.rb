@@ -4,7 +4,7 @@ module Etl
       def self.run
         job = Etl::WorkflowTemplates::CsvSoda2IntoPrimaryDb.setup({
           source_config: {
-            remote_url: ::DepartmentOfTransportation::BicycleCounter::CSV_SODA2_API_ENDPOINT
+            remote_url: ::DepartmentOfTransportation::BicycleCounter::SODA2_CSV_API_ENDPOINT
           },
           transform_config: {
             model: ::DepartmentOfTransportation::BicycleCounter,
