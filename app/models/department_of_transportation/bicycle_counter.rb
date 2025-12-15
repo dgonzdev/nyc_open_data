@@ -6,6 +6,7 @@ module DepartmentOfTransportation
     self.table_name = :bicycle_counters
 
     SODA2_API_ENDPOINT = "https://data.cityofnewyork.us/resource/smn3-rzf9.json"
+    SODA3_API_ENDPOINT = "https://data.cityofnewyork.us/api/v3/views/smn3-rzf9/query.json"
 
     CSV_SODA2_API_ENDPOINT = "https://data.cityofnewyork.us/resource/smn3-rzf9.csv"
     CSV_SODA3_API_ENDPOINT = "https://data.cityofnewyork.us/api/v3/views/smn3-rzf9/query.csv"
@@ -116,6 +117,36 @@ module DepartmentOfTransportation
 
     def self.import_from_csv_soda2_kiba
       Etl::Runners::BicycleCountersCsvSoda2IntoPrimaryDb.run
+    end
+
+    def self.import_soda3
+      data = RemoteDataset::Json::Soda3.new(remote_url: SODA3_API_ENDPOINT)
+
+      data.each do |row|
+        original_id = row["id"]
+        name = row["name"]
+        domain = row["domain"]
+        latitude = row["latitude"]
+        longitude = row["longitude"]
+        interval = row["interval"]
+        timezone = row["timezone"]
+        sens = row["sens"]
+        counter = row["counter"]
+
+        next if BicycleCounter.find_by(original_id: original_id).present?
+
+        BicycleCounter.create!(
+          original_id: original_id,
+          name: name,
+          domain: domain,
+          latitude: latitude,
+          longitude: longitude,
+          interval: interval,
+          timezone: timezone,
+          sens: sens,
+          counter: counter
+        )
+      end
     end
 
     def self.import_from_csv_soda3
