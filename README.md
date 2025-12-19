@@ -17,7 +17,9 @@ Please read the [core concepts document](docs/CORE_CONCEPTS.md) to learn about t
 
 ## Create Your Own Copy of NYC Open Data
 
-TODO
+Create your own copy of NYC Open Data with Ruby on Rails and Postgres.
+
+The ["nyc open data document"](docs/YOUR_NYC_OPEN_DATA.md) provides instructions on how to run the ruby code that pulls datasets from the NYC Open Data portal and into your own Postgres instance.
 
 ## Create and Share ETL Workflows with the NYC Civic Tech Community
 
