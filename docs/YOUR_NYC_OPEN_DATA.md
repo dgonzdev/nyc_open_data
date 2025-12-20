@@ -17,6 +17,7 @@ The datasets can be requested as either json or csv files.
 #### SODA2
 
 ```
+DepartmentOfTransportation::BicycleCounter.import
 DepartmentOfTransportation::BicycleCounter.import(api_version: '2', content_type: 'json')
 ```
 
@@ -43,6 +44,7 @@ It was implemented to demonstrate how to use the Kiba library to define/run ETL 
 #### SODA2
 
 ```
+DepartmentOfTransportation::BicycleCounter.run_import
 DepartmentOfTransportation::BicycleCounter.run_import(api_version: '2', content_type: 'json')
 ```
 
