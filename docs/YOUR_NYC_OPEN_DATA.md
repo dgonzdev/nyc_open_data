@@ -14,28 +14,46 @@ The import method supports pulling datasets with Socrata's SODA2 and SODA3 APIs.
 
 The datasets can be requested as either json or csv files.
 
-#### SODA2 and JSON
+#### SODA2
 
+JSON:
 ```
 DepartmentOfTransportation::BicycleCounter.import(api_version: '2', content_type: 'json')
 ```
 
-#### SODA2 and CSV
-
+CSV:
 ```
 DepartmentOfTransportation::BicycleCounter.import(api_version: '2', content_type: 'csv')
 ```
 
-#### SODA3 and JSON
+#### SODA3
 
+JSON:
 ```
 DepartmentOfTransportation::BicycleCounter.import(api_version: '3', content_type: 'json')
 ```
 
-#### SODA3 and CSV
-
+CSV:
 ```
 DepartmentOfTransportation::BicycleCounter.import(api_version: '3', content_type: 'csv')
+```
+
+### run_import
+
+The run_import method provides the same functionality as the import method.
+
+It was implemented to demonstrate how to use the Kiba library to define/run ETL workflows.
+
+#### SODA2
+
+JSON:
+```
+DepartmentOfTransportation::BicycleCounter.run_import(api_version: '2', content_type: 'json')
+```
+
+CSV:
+```
+DepartmentOfTransportation::BicycleCounter.run_import(api_version: '2', content_type: 'csv')
 ```
 
 ## Dataset Properties
