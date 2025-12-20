@@ -1,4 +1,31 @@
+# Core Concepts
+
+## NYC Open Data
+
+TODO
+- NYC Open Data Portal
+- Socrata
+- Tyler Technologies
+
+## Ruby
+
 TODO
 
-Multiple databases
+## Ruby on Rails
+
+TODO
+
+## Postgres
+
+TODO
+
+## Multiple databases
+
+TODO
 - https://guides.rubyonrails.org/active_record_multiple_databases.html
+
+## Kiba
+
+TODO
+
+## BI
