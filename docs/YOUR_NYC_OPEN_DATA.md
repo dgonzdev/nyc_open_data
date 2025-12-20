@@ -56,6 +56,18 @@ CSV:
 DepartmentOfTransportation::BicycleCounter.run_import(api_version: '2', content_type: 'csv')
 ```
 
+#### SODA3
+
+JSON:
+```
+DepartmentOfTransportation::BicycleCounter.run_import(api_version: '3', content_type: 'json')
+```
+
+CSV:
+```
+DepartmentOfTransportation::BicycleCounter.run_import(api_version: '3', content_type: 'csv')
+```
+
 ## Dataset Properties
 
 The models contain the following class methods to describe a dataset's properties.
