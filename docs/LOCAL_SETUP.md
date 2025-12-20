@@ -75,7 +75,7 @@ Remember to create a corresponding Rails model in app/models/analytics/.
 
 ## Import Data into the Primary DB
 
-Import data into the primary db.
+Import data into the primary database.
 
 ```
 DepartmentOfTransportation::BicycleCounter.import
@@ -85,7 +85,13 @@ See [nyc open data](docs/YOUR_NYC_OPEN_DATA.md) for more information.
 
 ## Import Data into the Primary DB with Kiba
 
-TODO
+Import data into the primary database with Kiba.
+
+```
+DepartmentOfTransportation::BicycleCounter.run_import
+```
+
+See [nyc open data](docs/YOUR_NYC_OPEN_DATA.md) for more information.
 
 ## Run ETL Workflows
 
