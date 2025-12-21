@@ -8,9 +8,9 @@ module Etl
         Kiba.parse do
           source Tasks::Sources::Soda3Source, **config[:source_config]
 
-#           transform Tasks::Transforms::PrimaryDb::FilterExistingRecordsTransform, **config[:transform_config]
+          transform Tasks::Transforms::PrimaryDb::FilterExistingRecordsTransform, **config[:transform_config]
 
-#           destination Tasks::Destinations::PrimaryDb::TableDestination, **config[:destination_config]
+          destination Tasks::Destinations::PrimaryDb::TableDestination, **config[:destination_config]
         end
       end
     end

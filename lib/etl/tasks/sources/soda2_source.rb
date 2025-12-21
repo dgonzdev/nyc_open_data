@@ -10,9 +10,9 @@ module Etl
         end
 
         def each
-          dataset_pages = RemoteDataset::Soda2::Json.new(remote_url: soda2_url)
+          dataset = RemoteDataset::Soda2::Json.new(remote_url: soda2_url)
 
-          dataset_pages.each do |row|
+          dataset.each do |row|
             yield(row)
           end
         end
