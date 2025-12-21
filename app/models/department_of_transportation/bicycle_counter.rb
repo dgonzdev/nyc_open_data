@@ -204,6 +204,7 @@ module DepartmentOfTransportation
       end
 
       if api_version == '3' && content_type == 'json'
+        run_import_soda3
       end
 
       if api_version == '3' && content_type == 'csv'
@@ -220,6 +221,11 @@ module DepartmentOfTransportation
       Etl::Runners::BicycleCountersSoda2CsvIntoPrimaryDb.run
     end
     private_class_method :run_import_soda2_csv
+
+    def self.run_import_soda3
+      Etl::Runners::BicycleCountersSoda3IntoPrimaryDb.run
+    end
+    private_class_method :run_import_soda3
 
     def self.run_import_soda3_csv
       Etl::Runners::BicycleCountersSoda3CsvIntoPrimaryDb.run
