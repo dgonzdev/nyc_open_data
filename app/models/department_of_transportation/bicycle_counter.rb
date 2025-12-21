@@ -221,6 +221,11 @@ module DepartmentOfTransportation
     end
     private_class_method :run_import_soda2_csv
 
+    def self.run_import_soda3
+      # Etl::Runners::BicycleCountersSoda3IntoPrimaryDb.run
+    end
+    private_class_method :run_import_soda3
+
     def self.run_import_soda3_csv
       Etl::Runners::BicycleCountersSoda3CsvIntoPrimaryDb.run
     end
