@@ -50,5 +50,65 @@ module OfficeOfCitywideEventCoordinationAndManagement
     def self.tags
       "event, to do, activity, park, block party, festival, nyc permitted event information, otm, office of the mayor"
     end
+
+    # Import
+    def self.import(api_version: '2', content_type: 'json')
+      if api_version == '2' && content_type == 'json'
+        import_soda2
+      end
+
+      # if api_version == '2' && content_type == 'csv'
+      #   import_soda2_csv
+      # end
+
+      # if api_version == '3' && content_type == 'json'
+      #   import_soda3
+      # end
+
+      # if api_version == '3' && content_type == 'csv'
+      #   import_soda3_csv
+      # end
+    end
+
+    def self.import_soda2
+      data = RemoteDataset::Soda2::Json.new(remote_url: SODA2_API_ENDPOINT)
+
+      data.each do |row|
+        event_id = row["event_id"]
+        event_name = row["event_name"]
+        start_date_time = row["start_date_time"]
+        end_date_time = row["end_date_time"]
+        event_agency = row["event_agency"]
+        event_type = row["event_type"]
+        event_borough = row["event_borough"]
+        event_location = row["event_location"]
+        event_street_side = row["event_street_side"]
+        street_closure_type = row["street_closure_type"]
+        community_board = row["community_board"]
+        police_precinct = row["police_precinct"]
+
+        next if NycPermittedEventInformationHistorical.where(
+          event_id: event_id,
+          start_date_time: start_date_time,
+          end_date_time: end_date_time
+        ).any?
+
+        NycPermittedEventInformationHistorical.create!(
+          event_id: event_id,
+          event_name: event_name,
+          start_date_time: start_date_time,
+          end_date_time: end_date_time,
+          event_agency: event_agency,
+          event_type: event_type,
+          event_borough: event_borough,
+          event_location: event_location,
+          event_street_side: event_street_side,
+          street_closure_type: street_closure_type,
+          community_board: community_board,
+          police_precinct: police_precinct
+        )
+      end
+    end
+    private_class_method :import_soda2
   end
 end
