@@ -57,9 +57,9 @@ module OfficeOfCitywideEventCoordinationAndManagement
         import_soda2
       end
 
-      # if api_version == '2' && content_type == 'csv'
-      #   import_soda2_csv
-      # end
+      if api_version == '2' && content_type == 'csv'
+        import_soda2_csv
+      end
 
       # if api_version == '3' && content_type == 'json'
       #   import_soda3
@@ -110,5 +110,46 @@ module OfficeOfCitywideEventCoordinationAndManagement
       end
     end
     private_class_method :import_soda2
+
+    def self.import_soda2_csv
+      csv = RemoteDataset::Soda2::Csv.new(remote_url: SODA2_CSV_API_ENDPOINT)
+
+      csv.each do |row|
+        event_id = row[0]
+        event_name = row[1]
+        start_date_time = row[2]
+        end_date_time = row[3]
+        event_agency = row[4]
+        event_type = row[5]
+        event_borough = row[6]
+        event_location = row[7]
+        event_street_side = row[8]
+        street_closure_type = row[9]
+        community_board = row[10]
+        police_precinct = row[11]
+
+        next if NycPermittedEventInformationHistorical.where(
+          event_id: event_id,
+          start_date_time: start_date_time,
+          end_date_time: end_date_time
+        ).any?
+
+        NycPermittedEventInformationHistorical.create!(
+          event_id: event_id,
+          event_name: event_name,
+          start_date_time: start_date_time,
+          end_date_time: end_date_time,
+          event_agency: event_agency,
+          event_type: event_type,
+          event_borough: event_borough,
+          event_location: event_location,
+          event_street_side: event_street_side,
+          street_closure_type: street_closure_type,
+          community_board: community_board,
+          police_precinct: police_precinct
+        )
+      end
+    end
+    private_class_method :import_soda2_csv
   end
 end
