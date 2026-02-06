@@ -33,7 +33,7 @@ You now have your own copy of the bicycle counter dataset!
 
 ## Local Setup
 
-The [local setup guide](docs/LOCAL_SETUP.md) provides detailed instructions on how to run the rails app locally.
+The [local setup guide](docs/LOCAL_SETUP.md) provides instructions on how to run the rails app locally.
 
 ## Core Concepts
 
@@ -49,7 +49,9 @@ TODO
 
 ## Explore NYC Open Data and Your ETL Output with Open Source BI Solutions
 
-TODO
+The [bi solutions document][docs/BI.md] explains how to use Apache Superset to explore your copy of NYC Open Data.
+
+More solutions coming soon.
 
 ## Production Deployments
 
