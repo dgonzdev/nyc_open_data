@@ -29,6 +29,14 @@ Build the docker containers.
 docker-compose build web
 ```
 
+## Start
+
+Start the docker containers and rails app.
+
+```
+docker-compose up web
+```
+
 ## Console
 
 Access the rails console.
