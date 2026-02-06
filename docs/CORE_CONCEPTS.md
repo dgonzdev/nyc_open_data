@@ -31,3 +31,7 @@ TODO
 ## BI
 
 TODO
+
+## Apache Superset
+
+TODO

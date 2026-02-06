@@ -33,7 +33,7 @@ You now have your own copy of the bicycle counter dataset!
 
 ## Local Setup
 
-The [local setup guide](docs/LOCAL_SETUP.md) provides detailed instructions on how to run the rails app locally.
+The [local setup guide](docs/LOCAL_SETUP.md) provides instructions on how to run the rails app locally.
 
 ## Core Concepts
 
@@ -41,7 +41,7 @@ The [core concepts document](docs/CORE_CONCEPTS.md) details the main technologie
 
 ## Create Your Own Copy of NYC Open Data
 
-The [nyc open data document](docs/YOUR_NYC_OPEN_DATA.md) provides instructions on how to run the ruby code that pulls datasets from the NYC Open Data portal and into your own Postgres instance.
+The [nyc open data document](docs/YOUR_NYC_OPEN_DATA.md) explains how to run the ruby code that pulls datasets from the NYC Open Data portal and into your own Postgres instance.
 
 ## Create and Share ETL Workflows with the NYC Civic Tech Community
 
@@ -49,7 +49,9 @@ TODO
 
 ## Explore NYC Open Data and Your ETL Output with Open Source BI Solutions
 
-TODO
+The [bi document](docs/BI.md) explains how to use Apache Superset to explore your copy of NYC Open Data.
+
+More bi solutions coming soon.
 
 ## Production Deployments
 

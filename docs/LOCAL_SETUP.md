@@ -29,6 +29,14 @@ Build the docker containers.
 docker-compose build web
 ```
 
+## Start
+
+Start the docker containers and rails app.
+
+```
+docker-compose up web
+```
+
 ## Console
 
 Access the rails console.
@@ -81,7 +89,7 @@ Import data into the primary database.
 DepartmentOfTransportation::BicycleCounter.import
 ```
 
-See [nyc open data](docs/YOUR_NYC_OPEN_DATA.md) for more information.
+See [nyc open data](YOUR_NYC_OPEN_DATA.md) for more information.
 
 ## Import Data into the Primary DB with Kiba
 
@@ -91,7 +99,7 @@ Import data into the primary database with Kiba.
 DepartmentOfTransportation::BicycleCounter.run_import
 ```
 
-See [nyc open data](docs/YOUR_NYC_OPEN_DATA.md) for more information.
+See [nyc open data](YOUR_NYC_OPEN_DATA.md) for more information.
 
 ## Run ETL Workflows
 
