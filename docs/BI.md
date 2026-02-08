@@ -52,9 +52,9 @@ ip addr show | grep docker0
 
 Enter the following values for the remaining fields:
 
-| Port  | Database name                | Username | Password | Display Name      |
-| ----- | ---------------------------- | -------- | -------- | ----------------- |
-| 5432  | nyc_open_data_development    | postgres | password | <can be anything> |
+| Port  | Database name                | Username | Password | Display Name       |
+| ----- | ---------------------------- | -------- | -------- | ------------------ |
+| 5432  | nyc_open_data_development    | postgres | password | \<can be anything> |
 
 Click connect.
 
