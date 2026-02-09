@@ -1,7 +1,6 @@
 # ETL
 
-Transform open data with Ruby.
+Transform open data with Kiba, a data processing & ETL framework for Ruby.
 
 ## Kiba
 
-Kiba is a data processing & ETL framework for Ruby.
