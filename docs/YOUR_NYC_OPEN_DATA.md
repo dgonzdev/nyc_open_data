@@ -41,6 +41,8 @@ The run_import method provides the same functionality as the import method.
 
 It was implemented to demonstrate how to use the Kiba library to define/run ETL workflows.
 
+Note: We are writing to the primary database here but in most cases Kiba will be used to write to the analytics database.
+
 #### SODA2
 
 ```

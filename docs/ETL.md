@@ -63,6 +63,14 @@ They live in
 lib/etl/tasks/destinations/
 ```
 
+#### Analytics DB
+
+TODO
+
+#### Analytics DB vs Primary DB
+
+TODO
+
 ### Runners
 
 Workflows define the series of steps in an ETL process.
