@@ -33,7 +33,7 @@ lib/etl/workflow_templates/
 
 ### Sources
 
-Sources are sources of data.
+Sources represent sources of data.
 
 They live in
 
@@ -42,6 +42,14 @@ lib/etl/tasks/sources/
 ```
 
 ### Transformations
+
+Transformations represent operations to perform on individual entries in a dataset.
+
+They live in
+
+```
+lib/etl/tasks/transformations
+```
 
 ### Destinations
 
