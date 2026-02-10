@@ -12,7 +12,7 @@ The models contain the following class methods to pull a dataset from the NYC Op
 
 The import method supports pulling datasets with Socrata's SODA2 and SODA3 APIs.
 
-The datasets can be requested as either json or csv files.
+The datasets can be requested as json or csv files.
 
 #### SODA2
 

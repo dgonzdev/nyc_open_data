@@ -55,7 +55,7 @@ lib/etl/tasks/transformations/
 
 ### Destinations
 
-Destinations are the table in the analytics database where we store the results of a single or series of transformation(s).
+Destinations are the tables in the analytics database where we store the results of a single or series of transformation(s).
 
 They live in
 
