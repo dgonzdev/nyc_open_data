@@ -45,13 +45,25 @@ Access the rails console.
 docker-compose run web bundle exec rails c
 ```
 
-## Create the Databases
+## Create the Primary Database
 
-Create the primary and analytics databases.
+Create the primary database.
 
 ```
-docker-compose run web bundle exec rake db:create
+docker-compose run web bundle exec rake db:create:primary
 ```
+
+The primary database is intended to be an exact copy of NYC Open Data.
+
+## Create the Analytics Database
+
+Create the analytics database.
+
+```
+docker-compose run web bundle exec rake db:create:analytics
+```
+
+The analytics database is intended to store your ETL output.
 
 ## Create Database Tables - Primary DB
 
