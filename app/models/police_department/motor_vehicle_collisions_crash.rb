@@ -171,7 +171,7 @@ module PoliceDepartment
         vehicle_type_code_4 = row[27]
         vehicle_type_code_5 = row[28]
 
-        next if MotorVehicleCollisionsCrash.find_by(original_id: original_id).present?
+        next if MotorVehicleCollisionsCrash.find_by(collision_id: collision_id).present?
 
         MotorVehicleCollisionsCrash.create!(
           crash_date: crash_date,
