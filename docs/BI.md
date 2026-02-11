@@ -60,6 +60,29 @@ Click connect.
 
 You should now be able to query and build charts on top of your copy of NYC Open Data.
 
+#### Step 5
+
+Click Settings -> Databases Connections -> + Database.
+
+Select PostgreSQL
+
+Run the following command to find the host:
+
+```
+ip addr show | grep docker0
+```
+- https://stackoverflow.com/questions/73757001/connect-superset-to-postgresql-in-a-docker-container-the-port-is-closed
+
+Enter the following values for the remaining fields:
+
+| Port  | Database name                       | Username | Password | Display Name       |
+| ----- | ----------------------------------- | -------- | -------- | ------------------ |
+| 5432  | nyc_open_data_analytics_development | postgres | password | \<can be anything> |
+
+Click connect.
+
+You should now be able to query and build charts on top of your ETL output.
+
 ### Managed Solutions
 
 #### Preset
