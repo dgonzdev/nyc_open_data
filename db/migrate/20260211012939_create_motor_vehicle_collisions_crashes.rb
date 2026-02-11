@@ -7,6 +7,7 @@ class CreateMotorVehicleCollisionsCrashes < ActiveRecord::Migration[7.2]
       t.string :zip_code
       t.decimal :latitude
       t.decimal :longitude
+      t.jsonb :location
       t.string :on_street_name
       t.string :off_street_name
       t.string :cross_street_name
