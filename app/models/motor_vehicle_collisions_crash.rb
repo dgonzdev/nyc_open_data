@@ -1,0 +1,2 @@
+class MotorVehicleCollisionsCrash < ApplicationRecord
+end
