@@ -80,7 +80,7 @@ Business Intelligence (BI) software comprises tools that collect, analyze, and v
 Open source solutions include
 - Apache Superset
 - Metabase
-- And many more
+- and many more
 
 ## Apache Superset
 
