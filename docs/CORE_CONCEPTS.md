@@ -22,19 +22,36 @@ Tyler Technologies purchased Socrata in 2018:
 
 ## Ruby
 
-TODO
+Ruby is a general-purpose programming language designed for simplicity and productivity.
+
+Website:
+- https://www.ruby-lang.org/en/
+
+Tutorial:
+- https://www.theodinproject.com/paths/full-stack-ruby-on-rails/courses/ruby
 
 ## Ruby on Rails
 
-TODO
+Rails is a web application framework that includes everything needed to create database-backed web applications.
+
+Website:
+- https://rubyonrails.org/
+
+Tutorial:
+- https://www.theodinproject.com/paths/full-stack-ruby-on-rails/courses/ruby-on-rails
 
 ## Postgres
 
-TODO
+PostgreSQL is a powerful, open source object-relational database system with over 35 years of active development that has earned it a strong reputation for reliability, feature robustness, and performance.
+
+Website:
+- https://www.postgresql.org/
 
 ## Multiple databases
 
-TODO
+Ruby on Rails supports connecting to multiple databases.
+
+Documentation
 - https://guides.rubyonrails.org/active_record_multiple_databases.html
 
 ## Kiba
