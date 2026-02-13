@@ -55,7 +55,9 @@ More bi solutions coming soon.
 
 ## Production Deployments
 
-TODO
+The [production deployments document](docs/PRODUCTION_DEPLOYMENTS.md) explains how to deploy the rails app to Heroku.
+
+More platforms coming soon.
 
 ## Contributing
 
