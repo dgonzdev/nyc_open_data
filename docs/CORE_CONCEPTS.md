@@ -35,7 +35,7 @@ Source Code:
 
 ## Ruby on Rails
 
-Rails is a web application framework that includes everything needed to create database-backed web applications.
+Ruby on Rails is a web application framework that includes everything needed to create database-backed web applications.
 
 Website:
 - https://rubyonrails.org/
