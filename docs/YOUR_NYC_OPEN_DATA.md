@@ -35,35 +35,6 @@ DepartmentOfTransportation::BicycleCounter.import(api_version: '3', content_type
 DepartmentOfTransportation::BicycleCounter.import(api_version: '3', content_type: 'csv')
 ```
 
-### run_import
-
-The run_import method provides the same functionality as the import method.
-
-It was implemented to demonstrate how to use the Kiba library to define/run ETL workflows.
-
-Note: We are writing to the primary database here but in most cases Kiba will be used to write to the analytics database.
-
-#### SODA2
-
-```
-DepartmentOfTransportation::BicycleCounter.run_import
-DepartmentOfTransportation::BicycleCounter.run_import(api_version: '2', content_type: 'json')
-```
-
-```
-DepartmentOfTransportation::BicycleCounter.run_import(api_version: '2', content_type: 'csv')
-```
-
-#### SODA3
-
-```
-DepartmentOfTransportation::BicycleCounter.run_import(api_version: '3', content_type: 'json')
-```
-
-```
-DepartmentOfTransportation::BicycleCounter.run_import(api_version: '3', content_type: 'csv')
-```
-
 ## Dataset Properties
 
 The models contain the following class methods to describe a dataset's properties.
