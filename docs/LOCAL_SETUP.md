@@ -103,16 +103,6 @@ DepartmentOfTransportation::BicycleCounter.import
 
 See [nyc open data](YOUR_NYC_OPEN_DATA.md) for more information.
 
-## Import Data into the Primary DB with Kiba
-
-Import data into the primary database with Kiba.
-
-```
-DepartmentOfTransportation::BicycleCounter.run_import
-```
-
-See [nyc open data](YOUR_NYC_OPEN_DATA.md) for more information.
-
 ## Run ETL Workflows
 
 Perform transformations on open data and store the results in the analytics database.
