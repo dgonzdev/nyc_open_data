@@ -86,3 +86,9 @@ They live in
 ```
 lib/etl/runners/
 ```
+
+The runners that that pull data from the NYC Open Data Portal and store an exact copy in the primary database live in
+
+```
+lib/etl/runners/primary_db_imports/
+```
