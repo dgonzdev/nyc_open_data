@@ -61,4 +61,10 @@ More platforms coming soon.
 
 ## Contributing
 
-TODO
+TLDR:
+- Fork the repository
+- Create a branch
+- Make your changes
+- Submit a pull request
+
+The [contributing document](docs/CONTRIBUTING.md) explains more.
