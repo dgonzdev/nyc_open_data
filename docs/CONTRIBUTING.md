@@ -39,4 +39,14 @@
 
 ## Adding New ETL Workflows
 
-TODO
+- Decide which source to use
+  - [../lib/etl/tasks/sources/](../lib/etl/tasks/sources/)
+- Decide which transformations to use or add new ones
+  - [../lib/etl/tasks/transforms/](../lib/etl/tasks/transforms/)
+- Decide which destination to use
+  - [../lib/etl/tasks/destinations/](../lib/etl/tasks/destinations/)
+- Decide which workflow/workflow template to use or add a new one
+  - [../lib/etl/workflows/](../lib/etl/workflows/)
+  - [../lib/etl/workflow_templates/](../lib/etl/workflow_templates/)
+- Add a runner
+  - [../lib/etl/runners/](../lib/etl/runners/)
